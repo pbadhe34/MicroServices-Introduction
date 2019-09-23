@@ -1,0 +1,44 @@
+# Spring properties
+spring:
+  application:
+    name: auth-service
+
+# Mongo properties read from pom.xml
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: auth-service-db
+
+
+# HTTP Server from pom.xml
+server:
+  port: 9081
+  
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
+
+# Auth JWT
+jwt:
+  header: Authorization
+  secret: quebic_secret
+  expiration: 172800 #seconds
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+
+# Image Upload Location
+image:
+  upload:
+    location: /quebic-images
+    
+# Email
+email:
+  userName: prakash.badhe@vishwasoft.in
+  password: quebic

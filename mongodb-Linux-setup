@@ -1,0 +1,7 @@
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+
+   https://www.mongodb.com/download-center/compass
+
+To install MongoDB Compass client : sudo apt install ./mongodb-compass_1.19.12_amd64.deb

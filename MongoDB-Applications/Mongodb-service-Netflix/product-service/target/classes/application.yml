@@ -1,0 +1,35 @@
+# Spring properties
+spring:
+  application:
+    name: product-service
+
+# Mongo properties
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: product-service-db
+
+
+# HTTP Server
+server:
+  port: 9095
+  
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
+
+# Auth JWT
+jwt:
+  header: Authorization
+  secret: quebic_secret
+  expiration: 172800 #seconds
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+

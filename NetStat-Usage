@@ -1,0 +1,674 @@
+netstat (network statistics) is a command line tool for monitoring network connections both incoming and outgoing as well as viewing routing tables, interface statistics etc. netstat is available on all Unix-like Operating Systems and also available on Windows OS as well. It is very useful in terms of network troubleshooting and performance measurement. netstat is one of the most basic network service debugging tools, telling you what ports are open and whether any programs are listening on ports.
+Linux Netstat Command
+
+Linux Netstat Command
+
+This tool is very important and much useful for Linux network administrators as well as system administrators to monitor and troubleshoot their network related problems and determine network traffic performance. This article shows usages of netstat command with their examples which may be useful in daily operation.
+
+
+1. Listing all the LISTENING Ports of TCP and UDP connections
+
+Listing all ports (both TCP and UDP) using netstat -a option.
+
+2. Listing TCP Ports connections
+
+Listing only TCP (Transmission Control Protocol) port connections using netstat -at.
+
+3. Listing UDP Ports connections
+
+Listing only UDP (User Datagram Protocol ) port connections using netstat -au.
+
+4. Listing all LISTENING Connections
+
+Listing all active listening ports connections with netstat -l.
+
+5. Listing all TCP Listening Ports
+
+Listing all active listening TCP ports by using option netstat -lt.
+
+6. Listing all UDP Listening Ports
+
+Listing all active listening UDP ports by using option netstat -lu.
+7. Listing all UNIX Listening Ports
+
+Listing all active UNIX listening ports using netstat -lx.
+
+8. Showing Statistics by Protocol
+
+Displays statistics by protocol. By default, statistics are shown for the TCP, UDP, ICMP, and IP protocols. The -s parameter can be used to specify a set of protocols.
+
+
+
+netstat (network statistics) is a command line tool for monitoring network connections both incoming and outgoing as well as viewing routing tables, interface statistics etc. netstat is available on all Unix-like Operating Systems and also available on Windows OS as well. It is very useful in terms of network troubleshooting and performance measurement. netstat is one of the most basic network service debugging tools, telling you what ports are open and whether any programs are listening on ports.
+Linux Netstat Command
+
+Linux Netstat Command
+
+This tool is very important and much useful for Linux network administrators as well as system administrators to monitor and troubleshoot their network related problems and determine network traffic performance. This article shows usages of netstat command with their examples which may be useful in daily operation.
+
+You might also be interested in following article
+
+    35 Practical Examples of Linux Find Command
+
+1. Listing all the LISTENING Ports of TCP and UDP connections
+
+Listing all ports (both TCP and UDP) using netstat -a option.
+
+# netstat -a | more
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 *:sunrpc                    *:*                         LISTEN
+tcp        0     52 192.168.0.2:ssh             192.168.0.1:egs             ESTABLISHED
+tcp        1      0 192.168.0.2:59292           www.gov.com:http            CLOSE_WAIT
+tcp        0      0 localhost:smtp              *:*                         LISTEN
+tcp        0      0 *:59482                     *:*                         LISTEN
+udp        0      0 *:35036                     *:*
+udp        0      0 *:npmp-local                *:*
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node Path
+unix  2      [ ACC ]     STREAM     LISTENING     16972  /tmp/orbit-root/linc-76b-0-6fa08790553d6
+unix  2      [ ACC ]     STREAM     LISTENING     17149  /tmp/orbit-root/linc-794-0-7058d584166d2
+unix  2      [ ACC ]     STREAM     LISTENING     17161  /tmp/orbit-root/linc-792-0-546fe905321cc
+unix  2      [ ACC ]     STREAM     LISTENING     15938  /tmp/orbit-root/linc-74b-0-415135cb6aeab
+
+2. Listing TCP Ports connections
+
+Listing only TCP (Transmission Control Protocol) port connections using netstat -at.
+
+# netstat -at
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 *:ssh                       *:*                         LISTEN
+tcp        0      0 localhost:ipp               *:*                         LISTEN
+tcp        0      0 localhost:smtp              *:*                         LISTEN
+tcp        0     52 192.168.0.2:ssh             192.168.0.1:egs             ESTABLISHED
+tcp        1      0 192.168.0.2:59292           www.gov.com:http            CLOSE_WAIT
+
+3. Listing UDP Ports connections
+
+Listing only UDP (User Datagram Protocol ) port connections using netstat -au.
+
+# netstat -au
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+udp        0      0 *:35036                     *:*
+udp        0      0 *:npmp-local                *:*
+udp        0      0 *:mdns                      *:*
+
+4. Listing all LISTENING Connections
+
+Listing all active listening ports connections with netstat -l.
+
+# netstat -l
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 *:sunrpc                    *:*                         LISTEN
+tcp        0      0 *:58642                     *:*                         LISTEN
+tcp        0      0 *:ssh                       *:*                         LISTEN
+udp        0      0 *:35036                     *:*
+udp        0      0 *:npmp-local                *:*
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node Path
+unix  2      [ ACC ]     STREAM     LISTENING     16972  /tmp/orbit-root/linc-76b-0-6fa08790553d6
+unix  2      [ ACC ]     STREAM     LISTENING     17149  /tmp/orbit-root/linc-794-0-7058d584166d2
+unix  2      [ ACC ]     STREAM     LISTENING     17161  /tmp/orbit-root/linc-792-0-546fe905321cc
+unix  2      [ ACC ]     STREAM     LISTENING     15938  /tmp/orbit-root/linc-74b-0-415135cb6aeab
+
+5. Listing all TCP Listening Ports
+
+Listing all active listening TCP ports by using option netstat -lt.
+
+# netstat -lt
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 *:dctp                      *:*                         LISTEN
+tcp        0      0 *:mysql                     *:*                         LISTEN
+tcp        0      0 *:sunrpc                    *:*                         LISTEN
+tcp        0      0 *:munin                     *:*                         LISTEN
+tcp        0      0 *:ftp                       *:*                         LISTEN
+tcp        0      0 localhost.localdomain:ipp   *:*                         LISTEN
+tcp        0      0 localhost.localdomain:smtp  *:*                         LISTEN
+tcp        0      0 *:http                      *:*                         LISTEN
+tcp        0      0 *:ssh                       *:*                         LISTEN
+tcp        0      0 *:https                     *:*                         LISTEN
+
+6. Listing all UDP Listening Ports
+
+Listing all active listening UDP ports by using option netstat -lu.
+
+# netstat -lu
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+udp        0      0 *:39578                     *:*
+udp        0      0 *:meregister                *:*
+udp        0      0 *:vpps-qua                  *:*
+udp        0      0 *:openvpn                   *:*
+udp        0      0 *:mdns                      *:*
+udp        0      0 *:sunrpc                    *:*
+udp        0      0 *:ipp                       *:*
+udp        0      0 *:60222                     *:*
+udp        0      0 *:mdns                      *:*
+
+7. Listing all UNIX Listening Ports
+
+Listing all active UNIX listening ports using netstat -lx.
+
+# netstat -lx
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node Path
+unix  2      [ ACC ]     STREAM     LISTENING     4171   @ISCSIADM_ABSTRACT_NAMESPACE
+unix  2      [ ACC ]     STREAM     LISTENING     5767   /var/run/cups/cups.sock
+unix  2      [ ACC ]     STREAM     LISTENING     7082   @/tmp/fam-root-
+unix  2      [ ACC ]     STREAM     LISTENING     6157   /dev/gpmctl
+unix  2      [ ACC ]     STREAM     LISTENING     6215   @/var/run/hald/dbus-IcefTIUkHm
+unix  2      [ ACC ]     STREAM     LISTENING     6038   /tmp/.font-unix/fs7100
+unix  2      [ ACC ]     STREAM     LISTENING     6175   /var/run/avahi-daemon/socket
+unix  2      [ ACC ]     STREAM     LISTENING     4157   @ISCSID_UIP_ABSTRACT_NAMESPACE
+unix  2      [ ACC ]     STREAM     LISTENING     60835836 /var/lib/mysql/mysql.sock
+unix  2      [ ACC ]     STREAM     LISTENING     4645   /var/run/audispd_events
+unix  2      [ ACC ]     STREAM     LISTENING     5136   /var/run/dbus/system_bus_socket
+unix  2      [ ACC ]     STREAM     LISTENING     6216   @/var/run/hald/dbus-wsUBI30V2I
+unix  2      [ ACC ]     STREAM     LISTENING     5517   /var/run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     5531   /var/run/pcscd.comm
+
+8. Showing Statistics by Protocol
+
+Displays statistics by protocol. By default, statistics are shown for the TCP, UDP, ICMP, and IP protocols. The -s parameter can be used to specify a set of protocols.
+
+# netstat -s
+Ip:
+2461 total packets received
+0 forwarded
+0 incoming packets discarded
+2431 incoming packets delivered
+2049 requests sent out
+Icmp:
+0 ICMP messages received
+0 input ICMP message failed.
+ICMP input histogram:
+1 ICMP messages sent
+0 ICMP messages failed
+ICMP output histogram:
+destination unreachable: 1
+Tcp:
+159 active connections openings
+1 passive connection openings
+4 failed connection attempts
+0 connection resets received
+1 connections established
+2191 segments received
+1745 segments send out
+24 segments retransmited
+0 bad segments received.
+4 resets sent
+Udp:
+243 packets received
+1 packets to unknown port received.
+0 packet receive errors
+281 packets sent
+
+9. Showing Statistics by TCP Protocol
+
+Showing statistics of only TCP protocol by using option netstat -st.
+
+ netstat -st
+
+10. Showing Statistics by UDP Protocol
+netstat -su
+
+
+
+netstat (network statistics) is a command line tool for monitoring network connections both incoming and outgoing as well as viewing routing tables, interface statistics etc. netstat is available on all Unix-like Operating Systems and also available on Windows OS as well. It is very useful in terms of network troubleshooting and performance measurement. netstat is one of the most basic network service debugging tools, telling you what ports are open and whether any programs are listening on ports.
+Linux Netstat Command
+
+Linux Netstat Command
+
+This tool is very important and much useful for Linux network administrators as well as system administrators to monitor and troubleshoot their network related problems and determine network traffic performance. This article shows usages of netstat command with their examples which may be useful in daily operation.
+
+You might also be interested in following article
+
+    35 Practical Examples of Linux Find Command
+
+1. Listing all the LISTENING Ports of TCP and UDP connections
+
+Listing all ports (both TCP and UDP) using netstat -a option.
+
+# netstat -a | more
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 *:sunrpc                    *:*                         LISTEN
+tcp        0     52 192.168.0.2:ssh             192.168.0.1:egs             ESTABLISHED
+tcp        1      0 192.168.0.2:59292           www.gov.com:http            CLOSE_WAIT
+tcp        0      0 localhost:smtp              *:*                         LISTEN
+tcp        0      0 *:59482                     *:*                         LISTEN
+udp        0      0 *:35036                     *:*
+udp        0      0 *:npmp-local                *:*
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node Path
+unix  2      [ ACC ]     STREAM     LISTENING     16972  /tmp/orbit-root/linc-76b-0-6fa08790553d6
+unix  2      [ ACC ]     STREAM     LISTENING     17149  /tmp/orbit-root/linc-794-0-7058d584166d2
+unix  2      [ ACC ]     STREAM     LISTENING     17161  /tmp/orbit-root/linc-792-0-546fe905321cc
+unix  2      [ ACC ]     STREAM     LISTENING     15938  /tmp/orbit-root/linc-74b-0-415135cb6aeab
+
+2. Listing TCP Ports connections
+
+Listing only TCP (Transmission Control Protocol) port connections using netstat -at.
+
+# netstat -at
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 *:ssh                       *:*                         LISTEN
+tcp        0      0 localhost:ipp               *:*                         LISTEN
+tcp        0      0 localhost:smtp              *:*                         LISTEN
+tcp        0     52 192.168.0.2:ssh             192.168.0.1:egs             ESTABLISHED
+tcp        1      0 192.168.0.2:59292           www.gov.com:http            CLOSE_WAIT
+
+3. Listing UDP Ports connections
+
+Listing only UDP (User Datagram Protocol ) port connections using netstat -au.
+
+# netstat -au
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+udp        0      0 *:35036                     *:*
+udp        0      0 *:npmp-local                *:*
+udp        0      0 *:mdns                      *:*
+
+4. Listing all LISTENING Connections
+
+Listing all active listening ports connections with netstat -l.
+
+# netstat -l
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 *:sunrpc                    *:*                         LISTEN
+tcp        0      0 *:58642                     *:*                         LISTEN
+tcp        0      0 *:ssh                       *:*                         LISTEN
+udp        0      0 *:35036                     *:*
+udp        0      0 *:npmp-local                *:*
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node Path
+unix  2      [ ACC ]     STREAM     LISTENING     16972  /tmp/orbit-root/linc-76b-0-6fa08790553d6
+unix  2      [ ACC ]     STREAM     LISTENING     17149  /tmp/orbit-root/linc-794-0-7058d584166d2
+unix  2      [ ACC ]     STREAM     LISTENING     17161  /tmp/orbit-root/linc-792-0-546fe905321cc
+unix  2      [ ACC ]     STREAM     LISTENING     15938  /tmp/orbit-root/linc-74b-0-415135cb6aeab
+
+5. Listing all TCP Listening Ports
+
+Listing all active listening TCP ports by using option netstat -lt.
+
+# netstat -lt
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 *:dctp                      *:*                         LISTEN
+tcp        0      0 *:mysql                     *:*                         LISTEN
+tcp        0      0 *:sunrpc                    *:*                         LISTEN
+tcp        0      0 *:munin                     *:*                         LISTEN
+tcp        0      0 *:ftp                       *:*                         LISTEN
+tcp        0      0 localhost.localdomain:ipp   *:*                         LISTEN
+tcp        0      0 localhost.localdomain:smtp  *:*                         LISTEN
+tcp        0      0 *:http                      *:*                         LISTEN
+tcp        0      0 *:ssh                       *:*                         LISTEN
+tcp        0      0 *:https                     *:*                         LISTEN
+
+6. Listing all UDP Listening Ports
+
+Listing all active listening UDP ports by using option netstat -lu.
+
+# netstat -lu
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+udp        0      0 *:39578                     *:*
+udp        0      0 *:meregister                *:*
+udp        0      0 *:vpps-qua                  *:*
+udp        0      0 *:openvpn                   *:*
+udp        0      0 *:mdns                      *:*
+udp        0      0 *:sunrpc                    *:*
+udp        0      0 *:ipp                       *:*
+udp        0      0 *:60222                     *:*
+udp        0      0 *:mdns                      *:*
+
+7. Listing all UNIX Listening Ports
+
+Listing all active UNIX listening ports using netstat -lx.
+
+# netstat -lx
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node Path
+unix  2      [ ACC ]     STREAM     LISTENING     4171   @ISCSIADM_ABSTRACT_NAMESPACE
+unix  2      [ ACC ]     STREAM     LISTENING     5767   /var/run/cups/cups.sock
+unix  2      [ ACC ]     STREAM     LISTENING     7082   @/tmp/fam-root-
+unix  2      [ ACC ]     STREAM     LISTENING     6157   /dev/gpmctl
+unix  2      [ ACC ]     STREAM     LISTENING     6215   @/var/run/hald/dbus-IcefTIUkHm
+unix  2      [ ACC ]     STREAM     LISTENING     6038   /tmp/.font-unix/fs7100
+unix  2      [ ACC ]     STREAM     LISTENING     6175   /var/run/avahi-daemon/socket
+unix  2      [ ACC ]     STREAM     LISTENING     4157   @ISCSID_UIP_ABSTRACT_NAMESPACE
+unix  2      [ ACC ]     STREAM     LISTENING     60835836 /var/lib/mysql/mysql.sock
+unix  2      [ ACC ]     STREAM     LISTENING     4645   /var/run/audispd_events
+unix  2      [ ACC ]     STREAM     LISTENING     5136   /var/run/dbus/system_bus_socket
+unix  2      [ ACC ]     STREAM     LISTENING     6216   @/var/run/hald/dbus-wsUBI30V2I
+unix  2      [ ACC ]     STREAM     LISTENING     5517   /var/run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     5531   /var/run/pcscd.comm
+
+8. Showing Statistics by Protocol
+
+Displays statistics by protocol. By default, statistics are shown for the TCP, UDP, ICMP, and IP protocols. The -s parameter can be used to specify a set of protocols.
+
+# netstat -s
+Ip:
+2461 total packets received
+0 forwarded
+0 incoming packets discarded
+2431 incoming packets delivered
+2049 requests sent out
+Icmp:
+0 ICMP messages received
+0 input ICMP message failed.
+ICMP input histogram:
+1 ICMP messages sent
+0 ICMP messages failed
+ICMP output histogram:
+destination unreachable: 1
+Tcp:
+159 active connections openings
+1 passive connection openings
+4 failed connection attempts
+0 connection resets received
+1 connections established
+2191 segments received
+1745 segments send out
+24 segments retransmited
+0 bad segments received.
+4 resets sent
+Udp:
+243 packets received
+1 packets to unknown port received.
+0 packet receive errors
+281 packets sent
+
+9. Showing Statistics by TCP Protocol
+
+Showing statistics of only TCP protocol by using option netstat -st.
+
+# netstat -st
+Tcp:
+2805201 active connections openings
+1597466 passive connection openings
+1522484 failed connection attempts
+37806 connection resets received
+1 connections established
+57718706 segments received
+64280042 segments send out
+3135688 segments retransmited
+74 bad segments received.
+17580 resets sent
+
+10. Showing Statistics by UDP Protocol
+
+# netstat -su
+Udp:
+1774823 packets received
+901848 packets to unknown port received.
+0 packet receive errors
+2968722 packets sent
+
+11. Displaying Service name with PID
+
+Displaying service name with their PID number, using option netstat -tp will display “PID/Program Name”.
+
+netstat -tp
+
+
+
+netstat (network statistics) is a command line tool for monitoring network connections both incoming and outgoing as well as viewing routing tables, interface statistics etc. netstat is available on all Unix-like Operating Systems and also available on Windows OS as well. It is very useful in terms of network troubleshooting and performance measurement. netstat is one of the most basic network service debugging tools, telling you what ports are open and whether any programs are listening on ports.
+Linux Netstat Command
+
+Linux Netstat Command
+
+This tool is very important and much useful for Linux network administrators as well as system administrators to monitor and troubleshoot their network related problems and determine network traffic performance. This article shows usages of netstat command with their examples which may be useful in daily operation.
+
+You might also be interested in following article
+
+    35 Practical Examples of Linux Find Command
+
+1. Listing all the LISTENING Ports of TCP and UDP connections
+
+Listing all ports (both TCP and UDP) using netstat -a option.
+
+# netstat -a | more
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 *:sunrpc                    *:*                         LISTEN
+tcp        0     52 192.168.0.2:ssh             192.168.0.1:egs             ESTABLISHED
+tcp        1      0 192.168.0.2:59292           www.gov.com:http            CLOSE_WAIT
+tcp        0      0 localhost:smtp              *:*                         LISTEN
+tcp        0      0 *:59482                     *:*                         LISTEN
+udp        0      0 *:35036                     *:*
+udp        0      0 *:npmp-local                *:*
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node Path
+unix  2      [ ACC ]     STREAM     LISTENING     16972  /tmp/orbit-root/linc-76b-0-6fa08790553d6
+unix  2      [ ACC ]     STREAM     LISTENING     17149  /tmp/orbit-root/linc-794-0-7058d584166d2
+unix  2      [ ACC ]     STREAM     LISTENING     17161  /tmp/orbit-root/linc-792-0-546fe905321cc
+unix  2      [ ACC ]     STREAM     LISTENING     15938  /tmp/orbit-root/linc-74b-0-415135cb6aeab
+
+2. Listing TCP Ports connections
+
+Listing only TCP (Transmission Control Protocol) port connections using netstat -at.
+
+# netstat -at
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 *:ssh                       *:*                         LISTEN
+tcp        0      0 localhost:ipp               *:*                         LISTEN
+tcp        0      0 localhost:smtp              *:*                         LISTEN
+tcp        0     52 192.168.0.2:ssh             192.168.0.1:egs             ESTABLISHED
+tcp        1      0 192.168.0.2:59292           www.gov.com:http            CLOSE_WAIT
+
+3. Listing UDP Ports connections
+
+Listing only UDP (User Datagram Protocol ) port connections using netstat -au.
+
+# netstat -au
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+udp        0      0 *:35036                     *:*
+udp        0      0 *:npmp-local                *:*
+udp        0      0 *:mdns                      *:*
+
+4. Listing all LISTENING Connections
+
+Listing all active listening ports connections with netstat -l.
+
+# netstat -l
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 *:sunrpc                    *:*                         LISTEN
+tcp        0      0 *:58642                     *:*                         LISTEN
+tcp        0      0 *:ssh                       *:*                         LISTEN
+udp        0      0 *:35036                     *:*
+udp        0      0 *:npmp-local                *:*
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node Path
+unix  2      [ ACC ]     STREAM     LISTENING     16972  /tmp/orbit-root/linc-76b-0-6fa08790553d6
+unix  2      [ ACC ]     STREAM     LISTENING     17149  /tmp/orbit-root/linc-794-0-7058d584166d2
+unix  2      [ ACC ]     STREAM     LISTENING     17161  /tmp/orbit-root/linc-792-0-546fe905321cc
+unix  2      [ ACC ]     STREAM     LISTENING     15938  /tmp/orbit-root/linc-74b-0-415135cb6aeab
+
+5. Listing all TCP Listening Ports
+
+Listing all active listening TCP ports by using option netstat -lt.
+
+# netstat -lt
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 *:dctp                      *:*                         LISTEN
+tcp        0      0 *:mysql                     *:*                         LISTEN
+tcp        0      0 *:sunrpc                    *:*                         LISTEN
+tcp        0      0 *:munin                     *:*                         LISTEN
+tcp        0      0 *:ftp                       *:*                         LISTEN
+tcp        0      0 localhost.localdomain:ipp   *:*                         LISTEN
+tcp        0      0 localhost.localdomain:smtp  *:*                         LISTEN
+tcp        0      0 *:http                      *:*                         LISTEN
+tcp        0      0 *:ssh                       *:*                         LISTEN
+tcp        0      0 *:https                     *:*                         LISTEN
+
+6. Listing all UDP Listening Ports
+
+Listing all active listening UDP ports by using option netstat -lu.
+
+# netstat -lu
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+udp        0      0 *:39578                     *:*
+udp        0      0 *:meregister                *:*
+udp        0      0 *:vpps-qua                  *:*
+udp        0      0 *:openvpn                   *:*
+udp        0      0 *:mdns                      *:*
+udp        0      0 *:sunrpc                    *:*
+udp        0      0 *:ipp                       *:*
+udp        0      0 *:60222                     *:*
+udp        0      0 *:mdns                      *:*
+
+7. Listing all UNIX Listening Ports
+
+Listing all active UNIX listening ports using netstat -lx.
+
+# netstat -lx
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node Path
+unix  2      [ ACC ]     STREAM     LISTENING     4171   @ISCSIADM_ABSTRACT_NAMESPACE
+unix  2      [ ACC ]     STREAM     LISTENING     5767   /var/run/cups/cups.sock
+unix  2      [ ACC ]     STREAM     LISTENING     7082   @/tmp/fam-root-
+unix  2      [ ACC ]     STREAM     LISTENING     6157   /dev/gpmctl
+unix  2      [ ACC ]     STREAM     LISTENING     6215   @/var/run/hald/dbus-IcefTIUkHm
+unix  2      [ ACC ]     STREAM     LISTENING     6038   /tmp/.font-unix/fs7100
+unix  2      [ ACC ]     STREAM     LISTENING     6175   /var/run/avahi-daemon/socket
+unix  2      [ ACC ]     STREAM     LISTENING     4157   @ISCSID_UIP_ABSTRACT_NAMESPACE
+unix  2      [ ACC ]     STREAM     LISTENING     60835836 /var/lib/mysql/mysql.sock
+unix  2      [ ACC ]     STREAM     LISTENING     4645   /var/run/audispd_events
+unix  2      [ ACC ]     STREAM     LISTENING     5136   /var/run/dbus/system_bus_socket
+unix  2      [ ACC ]     STREAM     LISTENING     6216   @/var/run/hald/dbus-wsUBI30V2I
+unix  2      [ ACC ]     STREAM     LISTENING     5517   /var/run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     5531   /var/run/pcscd.comm
+
+8. Showing Statistics by Protocol
+
+Displays statistics by protocol. By default, statistics are shown for the TCP, UDP, ICMP, and IP protocols. The -s parameter can be used to specify a set of protocols.
+
+# netstat -s
+Ip:
+2461 total packets received
+0 forwarded
+0 incoming packets discarded
+2431 incoming packets delivered
+2049 requests sent out
+Icmp:
+0 ICMP messages received
+0 input ICMP message failed.
+ICMP input histogram:
+1 ICMP messages sent
+0 ICMP messages failed
+ICMP output histogram:
+destination unreachable: 1
+Tcp:
+159 active connections openings
+1 passive connection openings
+4 failed connection attempts
+0 connection resets received
+1 connections established
+2191 segments received
+1745 segments send out
+24 segments retransmited
+0 bad segments received.
+4 resets sent
+Udp:
+243 packets received
+1 packets to unknown port received.
+0 packet receive errors
+281 packets sent
+
+9. Showing Statistics by TCP Protocol
+
+Showing statistics of only TCP protocol by using option netstat -st.
+
+# netstat -st
+Tcp:
+2805201 active connections openings
+1597466 passive connection openings
+1522484 failed connection attempts
+37806 connection resets received
+1 connections established
+57718706 segments received
+64280042 segments send out
+3135688 segments retransmited
+74 bad segments received.
+17580 resets sent
+
+10. Showing Statistics by UDP Protocol
+
+# netstat -su
+Udp:
+1774823 packets received
+901848 packets to unknown port received.
+0 packet receive errors
+2968722 packets sent
+
+11. Displaying Service name with PID
+
+Displaying service name with their PID number, using option netstat -tp will display “PID/Program Name”.
+
+# netstat -tp
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name
+tcp        0      0 192.168.0.2:ssh             192.168.0.1:egs             ESTABLISHED 2179/sshd
+tcp        1      0 192.168.0.2:59292           www.gov.com:http            CLOSE_WAIT  1939/clock-applet
+
+12. Displaying Promiscuous Mode
+
+Displaying Promiscuous mode with -ac switch, netstat print the selected information or refresh screen every five second. Default screen refresh in every second.
+
+ netstat -ac 5 | grep tcp
+
+13. Displaying Kernel IP routing
+
+Display Kernel IP routing table with netstat and route command.
+
+netstat -r
+
+14. Showing Network Interface Transactions
+
+Showing network interface packet transactions including both transferring and receiving packets
+# netstat -i
+ with MTU size.
+
+16. Displaying IPv4 and IPv6 Information
+
+Displays multicast group membership information for both IPv4 and IPv6.
+
+ netstat -g
+
+17. Print Netstat Information Continuously
+# netstat -c
+
+To get netstat information every few second, then use the following command, it will print netstat information continuously, say every few seconds.
+
+18. Finding non supportive Address
+
+Finding un-configured address families with some useful information.
+netstat --verbose
+
+19. Finding Listening Programs
+
+Find out how many listening programs running on a port.
+netstat -ap | grep http
+20. Displaying RAW Network Statistics
+# netstat --statistics --raw
+
+ netstat -ltnp | grep -w ':6443' 
+
+ netstat -ltnp | grep -w ':10248' 
+
+
+
+

@@ -1,0 +1,26 @@
+  
+ Add the spring boot actuator to dependencies to configure HTTP endpoint to shutdown a spring boot web app:
+
+1.Maven Pom.xml:
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+In application properties file
+#No auth  protected 
+endpoints.shutdown.sensitive=false
+
+#Enable shutdown endpoint
+endpoints.shutdown.enabled=true
+
+In application.yaml file
+endpoints.shutdown.sensitive: false
+endpoints.shutdown.enabled: true
+management.endpoint.shutdown.enabled: true
+
+  From curl execute post method
+  curl -i -X POST localhost:port/actuator/shutdown
+  curl -i -X POST localhost:8095/actuator/shutdown
+
